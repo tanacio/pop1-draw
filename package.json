@@ -1,0 +1,44 @@
+{
+  "name": "draw",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "dev": "run-p dev:*",
+    "dev:start": "node ./bin/www",
+    "dev:webpack": "webpack --watch --mode development --devtool=source-map",
+    "dev:css": "postcss ./app/css/input.css -o ./public/dist/style.css --watch",
+    "build": "run-s build:*",
+    "build:webpack": "webpack --mode production",
+    "build:css": "NODE_ENV=production postcss ./app/css/input.css -o ./public/dist/style.css",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "helmet": "^5.0.2",
+    "http-errors": "~1.6.3",
+    "jquery": "^3.6.0",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "@tailwindcss/forms": "^0.5.1",
+    "autoprefixer": "^10.4.7",
+    "babel-loader": "^8.2.4",
+    "cssnano": "^5.1.7",
+    "jest": "^27.5.1",
+    "postcss": "^8.4.13",
+    "postcss-cli": "^9.1.0",
+    "tailwindcss": "^3.0.24",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "yarn-run-all": "^3.1.1"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
