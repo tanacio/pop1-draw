@@ -441,10 +441,23 @@ function draw() {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('#error-message').removeClass("animate-fadeIn");
 
   // 入力フォームのエラーメッセージ
+  console.log(_entry_js__WEBPACK_IMPORTED_MODULE_1__.entryArray);
   var playerNameClass = document.querySelectorAll(".input-player");
   for (var i = 0; i < _entry_js__WEBPACK_IMPORTED_MODULE_1__.entryArray.length; i++) {
     if (_entry_js__WEBPACK_IMPORTED_MODULE_1__.entryArray[i] === undefined) {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('#entry').after("\n      <div class=\"entry-error text-red-700 text-2xl mt-5 animate-fadeIn text-center\">\n        <p>No.".concat(i + 1, " player name has not been entered.</p>\n      </div>"));
+      playerNameClass[i].classList.add("error-empty");
+      // 抽選中の Loading を削除
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#draw-btn .loading').css('display', 'none');
+      return;
+    } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('#season').prop("checked") && isNaN(_entry_js__WEBPACK_IMPORTED_MODULE_1__.entryArray[i].season)) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#entry').after("\n      <div class=\"entry-error text-red-700 text-2xl mt-5 animate-fadeIn text-center\">\n        <p>No.".concat(i + 1, " Season kill rate is not a number.</p>\n      </div>"));
+      playerNameClass[i].classList.add("error-empty");
+      // 抽選中の Loading を削除
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#draw-btn .loading').css('display', 'none');
+      return;
+    } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('#career').prop("checked") && isNaN(_entry_js__WEBPACK_IMPORTED_MODULE_1__.entryArray[i].career)) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#entry').after("\n      <div class=\"entry-error text-red-700 text-2xl mt-5 animate-fadeIn text-center\">\n        <p>No.".concat(i + 1, " Career kill rate is not a number.</p>\n      </div>"));
       playerNameClass[i].classList.add("error-empty");
       // 抽選中の Loading を削除
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('#draw-btn .loading').css('display', 'none');
