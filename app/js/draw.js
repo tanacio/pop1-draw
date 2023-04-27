@@ -57,7 +57,7 @@ function draw() {
     } else if($('#season').prop("checked") && isNaN(entryArray[i].season)) {
       $('#entry').after(`
       <div class="entry-error text-red-700 text-2xl mt-5 animate-fadeIn text-center">
-        <p>No.${i + 1} Season kill rate is not a number.</p>
+        <p>No.${i + 1} kill rate is not a number.</p>
       </div>`);
       playerNameClass[i].classList.add("error-empty");
       // 抽選中の Loading を削除

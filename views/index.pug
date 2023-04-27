@@ -7,10 +7,10 @@ block content
         img(src="./images/PoponeLogo.png", alt="POPULATION: ONE", class="md:max-w-[400px]")
       span.font-anton.text-5xl.pl-4(class="md:text-7xl md:pl-8") Draw
     div.mt-2
-      label.cursor-pointer.block(for="season")
+      label.cursor-pointer.hidden(for="season")
         input.form-radio.text-blue-600(type="radio", name="use-kill-rate", id="season", value="season", class="focus:ring-blue-700" checked)
         span.text-sm.ml-2 Use the Season kill rate
-      label.cursor-pointer.block(for="career")
+      label.cursor-pointer.hidden(for="career")
         input.form-radio.text-blue-600(type="radio", name="use-kill-rate", id="career", value="career", class="focus:ring-blue-700")
         span.text-sm.ml-2 Use the Career kill rate
       label.cursor-pointer.block(for="custom")
