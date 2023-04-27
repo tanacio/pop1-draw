@@ -19,7 +19,7 @@ app.use(
     useDefaults: true,
     directives: {
       "img-src": ["'self'", "https: data:", ga, gtm],
-      "script-src": ["'self'", ga, gas, gtm, `'nonce-${res.locals.nonce}'`],
+      "script-src": ["'self'", ga, gas, gtm],
       "connect-src": ["'self'", ga],
     }
   })
