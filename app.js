@@ -9,21 +9,17 @@ const jsonSearch = require('./routes/json-search');
 const jsonAPI = require('./routes/json-api');
 
 const app = express();
-app.use(helmet());
-const ga = 'https://www.google-analytics.com';
-const gas = 'https://ssl.google-analytics.com';
-const gtm = 'https://www.googletagmanager.com';
+// app.use(helmet());
+
 // 外部URLの画像を表示許可
-app.use(
-  helmet.contentSecurityPolicy({
-    useDefaults: true,
-    directives: {
-      "img-src": ["'self'", "https: data:", ga, gtm],
-      "script-src": ["'self'", ga, gas, gtm],
-      "connect-src": ["'self'", ga],
-    }
-  })
-)
+// app.use(
+//   helmet.contentSecurityPolicy({
+//     useDefaults: true,
+//     directives: {
+//       "img-src": ["'self'", "https: data:"],
+//     }
+//   })
+// )
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
