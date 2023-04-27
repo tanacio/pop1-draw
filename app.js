@@ -10,15 +10,17 @@ const jsonAPI = require('./routes/json-api');
 
 const app = express();
 app.use(helmet());
-
+const ga = 'https://www.google-analytics.com';
+const gas = 'https://ssl.google-analytics.com';
+const gtm = 'https://www.googletagmanager.com';
 // 外部URLの画像を表示許可
 app.use(
   helmet.contentSecurityPolicy({
     useDefaults: true,
     directives: {
-      "img-src": ["'self'", "https: data:", "https://www.googletagmanager.com"],
-      "script-src": ["'self'", "https://www.googletagmanager.com"],
-      "connect-src": ["'self'", "https://www.googletagmanager.com"],
+      "img-src": ["'self'", "https: data:", ga, gtm],
+      "script-src": ["'self'", ga, gas, gtm, `'nonce-${res.locals.nonce}'`],
+      "connect-src": ["'self'", ga],
     }
   })
 )
