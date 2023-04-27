@@ -2,6 +2,12 @@ doctype html
 html(lang='en')
   head
     title= title
+    script.
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-NGV94K5');
     meta(name="description", content="It automatically reads the kill rate from the player name and divides the squads into teams so that the squads have equal total kill rates. You can set how much difference between the total kill rates of each squad is allowed.")
     link(rel="stylesheet", href="/dist/style.css")
     link(rel="shortcut icon", href="/images/favicon.png", type="image/png")
@@ -13,4 +19,6 @@ html(lang='en')
     meta(property="og:description", content="It automatically reads the kill rate from the player name and divides the squads into teams so that the squads have equal total kill rates. You can set how much difference between the total kill rates of each squad is allowed.")
     meta(property="og:image", content="https://pop1.onrender.com/images/twittercard.jpg")
   body
+    noscript
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGV94K5" height="0" width="0" style="display:none;visibility:hidden"></iframe>
     block content
