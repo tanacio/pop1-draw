@@ -34,10 +34,10 @@ function ajaxPostPlayerName(target, targetObject) {
       <section class="entry border-4 border-slate-800 mt-3 p-3">
         <h2 class="font-barlow_condensed text-xl text-center player-name">${playerName}</h2>
         <dl class="flex flex-wrap justify-between mt-2">
-          <dt class="w-[110px] font-caveat text-xl text-gray-300">kill rate</dt>
-          <dd class="season-kill-rate font-bebas_neue text-xl text-right w-[calc(100%_-_110px)]">${seasonKillRate}</dd>
-          <dt class="w-[110px] font-caveat text-xl text-gray-300 hidden">career kill rate</dt>
-          <dd class="career-kill-rate font-bebas_neue text-xl text-right w-[calc(100%_-_110px)] hidden">${careerKillRate}</dd>
+          <dt class="w-[110px] font-caveat text-xl text-gray-300 hidden">kill rate</dt>
+          <dd class="season-kill-rate font-bebas_neue text-xl text-right w-[calc(100%_-_110px)] hidden">${seasonKillRate}</dd>
+          <dt class="w-[110px] font-caveat text-xl text-gray-300">career kill rate</dt>
+          <dd class="career-kill-rate font-bebas_neue text-xl text-right w-[calc(100%_-_110px)]">${careerKillRate}</dd>
         </dl>
         <div class="custom-kill-rate justify-between mt-4 hidden">
           <label class="w-[110px] font-caveat text-xl text-gray-300">custom rate</label>
