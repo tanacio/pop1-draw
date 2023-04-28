@@ -773,6 +773,9 @@ select{
 .ml-2{
   margin-left: 0.5rem;
 }
+.mr-2{
+  margin-right: 0.5rem;
+}
 .mt-8{
   margin-top: 2rem;
 }
@@ -1409,6 +1412,9 @@ body{
 @media (min-width: 768px){
   .md\:mt-3{
     margin-top: 0.75rem;
+  }
+  .md\:mt-8{
+    margin-top: 2rem;
   }
   .md\:block{
     display: block;

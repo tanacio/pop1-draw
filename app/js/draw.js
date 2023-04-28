@@ -40,9 +40,7 @@ function draw() {
   // アニメーション用classを削除
   $('#success-message').removeClass("animate-fadeIn");
   $('#error-message').removeClass("animate-fadeIn");
-
-  // 入力フォームのエラーメッセージ
-  console.log(entryArray);
+  
   const playerNameClass = document.querySelectorAll(".input-player");
   for (let i = 0; i < entryArray.length; i++) {
     if (entryArray[i] === undefined) {
@@ -77,6 +75,18 @@ function draw() {
     }
   }
 
+  // 入力フォームのエラーメッセージ
+  if (entryArray.length < 4) {
+    //4人以上いなければエラーを返す
+    $('#entry').after(`
+    <div class="entry-error text-red-700 text-2xl mt-5 animate-fadeIn text-center">
+      <p>There are only ${entryArray.length} people. We need more than 4 people to draw lots.</p>
+    </div>`);
+    // 抽選中の Loading を削除
+    $('#draw-btn .loading').css('display', 'none');
+    return;
+  }
+  
   // entryArray を deep copy
   const drawArray = entryArray.map(elem => {
     if (Array.isArray(elem)) {
@@ -107,6 +117,7 @@ function draw() {
   }
 
   // 抽選する条件
+  const SquadPlayerSum = Number(document.getElementById("squad-player").value);
   const adjust = Number(document.getElementById("adjust").value);
 
   /**
@@ -145,36 +156,38 @@ function draw() {
       const playerSum = entryArray.length;
 
       // 最後のスクワッドを作る処理
-      if (playerSum % 3 == 1) {
+      if (playerSum % SquadPlayerSum == 1 && SquadPlayerSum == 3) {
         while (k < playerSum) {
           // 余りが1人で2人組スクワッドを2つ作る場合
           if (k == playerSum - 4) {
+            // 2人組を2つ作る
             // シャッフルされたメンバーの配列をスクワッド毎に分割
             squadArray.push(shuffleArray.slice(k, playerSum - 2));
             squadArray.push(shuffleArray.slice(k + 2, playerSum));
             squadKillRateSum = squadArray[m].reduce((sum, j) => sum + j.kill_rate, 0);
             // キルレートの合計を配列に追加
             squadKillRateSumArray.push(squadKillRateSum);
-            // キルレートの合計を配列に追加
+            squadKillRateSum = squadArray[m + 1].reduce((sum, j) => sum + j.kill_rate, 0);
+              // キルレートの合計を配列に追加
             squadKillRateSumArray.push(squadKillRateSum);
-            k = k + 3;
+            k = k + SquadPlayerSum;
           }
           // 通常の処理
           else {
             // シャッフルされたメンバーの配列をスクワッド毎に分割
-            squadArray.push(shuffleArray.slice(k, k + 3));
+            squadArray.push(shuffleArray.slice(k, k + SquadPlayerSum));
             squadKillRateSum = squadArray[m].reduce((sum, j) => sum + j.kill_rate, 0);
             // キルレートの合計を配列に追加
             squadKillRateSumArray.push(squadKillRateSum);
           }
-          (k = k + 3), m++;
+          (k = k + SquadPlayerSum), m++;
         }
       }
       // 通常の処理
       else {
-        for (let i = 0; i < playerSum; i = i + 3, m++) {
+        for (let i = 0; i < playerSum; i = i + SquadPlayerSum, m++) {
           // シャッフルされたメンバーの配列をスクワッド毎に分割
-          squadArray.push(shuffleArray.slice(i, i + 3));
+          squadArray.push(shuffleArray.slice(i, i + SquadPlayerSum));
           squadKillRateSum = squadArray[m].reduce((sum, j) => sum + j.kill_rate, 0);
           // キルレートの合計を配列に追加
           squadKillRateSumArray.push(squadKillRateSum);
@@ -275,7 +288,7 @@ function draw() {
         entryArray.filter((val) => {
           // player_name だけを配列にする
           duplicateArrey.push(val.player_name)
-        });
+        });playerSum
         // 重複しているエントリープレイヤー
         const duplicatePlayer = duplicateArrey.filter(function (val, i, array) {
           return !(array.indexOf(val) === i);
@@ -308,8 +321,7 @@ function draw() {
         </div>`);
         // 抽選中の Loading を削除
         $('#draw-btn .loading').css('display', 'none');
-      }
-      count++;
+      } count++;
     }
   }, 100);
 };
