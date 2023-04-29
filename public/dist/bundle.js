@@ -706,9 +706,24 @@ function draw() {
       var _ret = _loop();
       if (_ret === "break") break;
     }
+    ScrollWindow('msg');
   }, 100);
 }
 ;
+
+/**
+ * 抽選ボタンを押すたときにメッセージを画面中央にスクロールする。
+ * @param {*} elem 
+ */
+function ScrollWindow(elem) {
+  var element = document.getElementById(elem);
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  }
+}
 
 // Draw ボタンクリック時の CSS 操作
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('#draw-btn button').on('mousedown', function () {

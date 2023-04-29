@@ -323,8 +323,20 @@ function draw() {
         $('#draw-btn .loading').css('display', 'none');
       } count++;
     }
+    ScrollWindow('msg')
   }, 100);
 };
+
+/**
+ * 抽選ボタンを押すたときにメッセージを画面中央にスクロールする。
+ * @param {*} elem 
+ */
+function ScrollWindow(elem) {
+  const element = document.getElementById(elem);
+  if (element) {
+      element.scrollIntoView({behavior: 'smooth', block: 'center'});
+  }
+}
 
 // Draw ボタンクリック時の CSS 操作
 $('#draw-btn button').on('mousedown', () => {
