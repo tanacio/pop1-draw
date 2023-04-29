@@ -51,5 +51,3 @@ $('#entry').on('click', '.delete', deletePlayer);
 
 // 抽選処理
 $('#draw-btn button').on('click', draw);
-
-

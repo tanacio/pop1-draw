@@ -334,5 +334,4 @@ $('#draw-btn button').on('mouseup', () => {
   $('button').removeClass('focus:ring-4 focus:ring-blue-300')
 });
 
-
 export { draw }

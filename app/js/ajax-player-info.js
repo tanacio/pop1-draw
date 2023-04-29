@@ -89,6 +89,4 @@ function ajaxPostPlayerName(target, targetObject) {
     });
 }
 
-
-
 export { ajaxPostPlayerName };
