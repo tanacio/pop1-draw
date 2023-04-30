@@ -615,7 +615,7 @@ function draw() {
         var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
         // 抽選された各スクワッドの合計キルレートと全体の合計キルレートを比較し条件分岐
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#success-message').append("<div class=\"flex justify-center items-center\">\n            <h3 class=\"mr-10 text-green-700 text-5xl font-barlow_condensed font-bold\">Success!!</h3>\n            <div class=\"text-xl\">\n              <p>The ".concat(count.toLocaleString(), "th drawing found a combination that meets the requirements.</p>\n              <p class=\"mt-3\">The average kill rate for this tournament is <span class=\"text-amber-500\">").concat(killRateAverage.toFixed(2), "</span>.<br>Maximum kill rate difference is <span class=\"text-amber-500\">").concat((squadMaxKillRate.toFixed(2) - squadMinKillRate.toFixed(2)).toFixed(2), "</span>.</p>\n            </div>\n          </div>"));
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#success-message').append("<div class=\"md:flex md:justify-center md:items-center\">\n            <h3 class=\"mr-10 text-green-700 text-5xl font-barlow_condensed font-bold\">Success!!</h3>\n            <div class=\"text-xl\">\n              <p>The ".concat(count.toLocaleString(), "th drawing found a combination that meets the requirements.</p>\n              <p class=\"mt-3\">The average kill rate for this tournament is <span class=\"text-amber-500\">").concat(killRateAverage.toFixed(2), "</span>.<br>Maximum kill rate difference is <span class=\"text-amber-500\">").concat((squadMaxKillRate.toFixed(2) - squadMinKillRate.toFixed(2)).toFixed(2), "</span>.</p>\n            </div>\n          </div>"));
 
         // 分割されたスクワッドの配列をキルレート順にソート
         for (var _i4 = 0; _i4 < squadArray.length; _i4++) {

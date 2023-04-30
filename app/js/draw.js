@@ -217,7 +217,7 @@ function draw() {
 
         // 抽選された各スクワッドの合計キルレートと全体の合計キルレートを比較し条件分岐
         $('#success-message').append(
-          `<div class="flex justify-center items-center">
+          `<div class="md:flex md:justify-center md:items-center">
             <h3 class="mr-10 text-green-700 text-5xl font-barlow_condensed font-bold">Success!!</h3>
             <div class="text-xl">
               <p>The ${count.toLocaleString()}th drawing found a combination that meets the requirements.</p>

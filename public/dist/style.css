@@ -1407,14 +1407,14 @@ body{
   }
 }
 @media (min-width: 768px){
-  .md\:mt-3{
-    margin-top: 0.75rem;
-  }
   .md\:mt-8{
     margin-top: 2rem;
   }
   .md\:block{
     display: block;
+  }
+  .md\:flex{
+    display: flex;
   }
   .md\:max-w-\[400px\]{
     max-width: 400px;
@@ -1424,6 +1424,12 @@ body{
   }
   .md\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .md\:items-center{
+    align-items: center;
+  }
+  .md\:justify-center{
+    justify-content: center;
   }
   .md\:pl-8{
     padding-left: 2rem;
