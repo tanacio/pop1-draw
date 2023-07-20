@@ -28,8 +28,11 @@ block content
       div.flex.items-center.gap-3(class="md:mt-8")
         input.form-checkbox.text-blue-600(type="checkbox", id="custom", value="custom", class="focus:ring-blue-700")
         span.text-sm Use the Custom kill rate
-  div#entry.grid.grid-cols-2.gap-x-5.gap-y-8.mt-8(class="sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6")
-  div#draw-btn.mt-10.text-center
+  div#entry.grid.grid-cols-2.gap-x-5.gap-y-8.mt-8(class="sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 max-w-[1160px]")
+  div.flex.items-center.gap-3.justify-center.mt-10
+    input.form-checkbox.text-blue-600(type="checkbox", id="streaming", value="on", class="focus:ring-blue-700")
+    span.text-sm For Streaming
+  div#draw-btn.mt-3.text-center(class="max-w-[1160px]")
     span.relative
       button(class="text-white bg-blue-700 hover:bg-blue-800 rounded-lg text-5xl font-alfa_slab_one px-12 py-3") Draw
       div.loading.hidden

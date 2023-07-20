@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { entryArray } from './entry.js';
 import { textData } from './copy.js';
+import Splide from '@splidejs/splide';
 
 /**
  * キルレートの表示の色分け
@@ -305,6 +306,63 @@ function draw() {
           $('#error-message').addClass("animate-fadeIn");
         }
 
+        // splideのスライダーを削除
+        let splideClass = document.getElementsByClassName("splide");
+        while(splideClass.length > 0){
+          splideClass[0].parentNode.removeChild(splideClass[0]);
+        }
+
+        const streaming = document.getElementById("streaming");
+        if(streaming.checked) {
+          // 配信用のスライダー
+          function splideJs() {
+            let sliderElm = document.createElement("section");
+            $(sliderElm).addClass("splide");
+            $(sliderElm).addClass("mt-10");
+            let sliderElm2 = document.createElement("div");
+            $(sliderElm2).addClass("splide__track");
+            let sliderElm3 = document.createElement("div");
+            $(sliderElm3).addClass("splide__list");
+            $('#draw-btn').append(sliderElm);
+            $('.splide').append(sliderElm2);
+            $('.splide__track').append(sliderElm3);
+
+            for (let i = 0; i < squadArray.length; i++) {
+              let createSquadSection = document.createElement("section");
+              $(createSquadSection).addClass("splide__slide");
+              let createSquadDiv = document.createElement("div");
+              createSquadDiv.classList.add("bg-slate-800", "mt-2", "py-10", "px-32"); 
+              $('.splide__list').append(createSquadSection);
+              createSquadSection.appendChild(createSquadDiv);
+              createSquadSection.insertAdjacentHTML("afterbegin", `<h2 class="text-5xl font-anton m-5 text-left">Group ${alphabet[i]}</h2>`);
+              for (let j = 0; j < squadArray[i].length; j++) {
+                let resultHtml = `
+                <div class="player grid grid-cols-[150px_1fr_140px] gap-3 items-center mt-5">
+                  <figure><img src="${squadArray[i][j].avatar}"></figure>
+                  <div class="font-barlow_condensed text-7xl leading-none break-all">${squadArray[i][j].player_name}</div>
+                  <div class="font-bebas_neue text-5xl leading-none text-right">${squadArray[i][j].kill_rate.toFixed(2)}</div>
+                </div>`;
+                createSquadDiv.insertAdjacentHTML("beforeend", resultHtml);
+                createSquadSection.appendChild(createSquadDiv);
+              }
+              createSquadDiv.insertAdjacentHTML("afterbegin", `
+              <div class="player-header font-caveat text-5xl grid grid-cols-[1fr_140px] justify-items-center mb-10">
+                <div class="text-center">player name</div>
+                <div>kill rate</div>
+              </div>`);
+              // スクワッドの合計・平均キルレート
+              let squadNewKRSum = squadArray[i].reduce((sum, j) => sum + j.kill_rate, 0);
+              squadNewKRSumAry.push(squadNewKRSum);
+              createSquadDiv.insertAdjacentHTML("beforeend", `<div class="kill-rate-average font-caveat text-3xl mt-5 text-right">Average kill rate: ${(squadNewKRSumAry[i] / squadArray[i].length).toFixed(2)}</div>`);
+              createSquadDiv.insertAdjacentHTML("beforeend", `<div class="kill-rate-sum text-3xl font-caveat text-right"><span>Total kill rate: ${squadNewKRSumAry[i].toFixed(2)}</span></div>`);
+            }
+
+
+          }
+          splideJs();
+          new Splide( '.splide' ).mount();
+        }
+
         // 抽選中の Loading を削除
         $('#draw-btn .loading').css('display', 'none');
         $('#success-message').addClass("animate-fadeIn");
@@ -321,6 +379,11 @@ function draw() {
         </div>`);
         // 抽選中の Loading を削除
         $('#draw-btn .loading').css('display', 'none');
+        // Stream用のスライドを削除
+        let splideClass = document.getElementsByClassName("splide");
+        while(splideClass.length > 0){
+          splideClass[0].parentNode.removeChild(splideClass[0]);
+        }
       } count++;
     }
     ScrollWindow('msg')
@@ -333,9 +396,13 @@ function draw() {
  */
 function ScrollWindow(elem) {
   const element = document.getElementById(elem);
-  if (element) {
-      element.scrollIntoView({behavior: 'smooth', block: 'center'});
-  }
+  const streaming = document.getElementById("streaming");
+  const splideC = document.querySelector('.splide');
+  if(streaming.checked) {
+    splideC.scrollIntoView({behavior: 'smooth', block: 'center'});
+  } else if (element) {
+    element.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
 }
 
 // Draw ボタンクリック時の CSS 操作
