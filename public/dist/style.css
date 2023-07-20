@@ -764,14 +764,14 @@ select{
 .ml-3{
   margin-left: 0.75rem;
 }
-.mb-10{
-  margin-bottom: 2.5rem;
-}
 .mr-10{
   margin-right: 2.5rem;
 }
 .mb-6{
   margin-bottom: 1.5rem;
+}
+.mb-10{
+  margin-bottom: 2.5rem;
 }
 .mb-0\.5{
   margin-bottom: 0.125rem;
@@ -787,9 +787,6 @@ select{
 }
 .mt-16{
   margin-top: 4rem;
-}
-.ml-10{
-  margin-left: 2.5rem;
 }
 .block{
   display: block;
@@ -845,9 +842,6 @@ select{
 .w-full{
   width: 100%;
 }
-.w-\[40rem\]{
-  width: 40rem;
-}
 .w-0\.5{
   width: 0.125rem;
 }
@@ -859,15 +853,6 @@ select{
 }
 .w-7{
   width: 1.75rem;
-}
-.w-\[60rem\]{
-  width: 60rem;
-}
-.max-w-\[100\%\]{
-  max-width: 100%;
-}
-.max-w-\[116px\]{
-  max-width: 116px;
 }
 .max-w-\[1160px\]{
   max-width: 1160px;
@@ -909,17 +894,17 @@ select{
 .resize{
   resize: both;
 }
-.grid-cols-\[150px_1fr_140px\]{
-  grid-template-columns: 150px 1fr 140px;
-}
-.grid-cols-\[1fr_140px\]{
-  grid-template-columns: 1fr 140px;
-}
 .grid-cols-\[50px_1fr_40px\]{
   grid-template-columns: 50px 1fr 40px;
 }
 .grid-cols-\[1fr_70px\]{
   grid-template-columns: 1fr 70px;
+}
+.grid-cols-\[150px_1fr_140px\]{
+  grid-template-columns: 150px 1fr 140px;
+}
+.grid-cols-\[1fr_140px\]{
+  grid-template-columns: 1fr 140px;
 }
 .grid-cols-2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1023,6 +1008,10 @@ select{
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
+.bg-black{
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
 .p-3{
   padding: 0.75rem;
 }
@@ -1062,6 +1051,10 @@ select{
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
+.px-32{
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
 .py-1\.5{
   padding-top: 0.375rem;
   padding-bottom: 0.375rem;
@@ -1073,10 +1066,6 @@ select{
 .py-3{
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-}
-.px-32{
-  padding-left: 8rem;
-  padding-right: 8rem;
 }
 .pl-7{
   padding-left: 1.75rem;
@@ -1128,6 +1117,10 @@ select{
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+.text-7xl{
+  font-size: 4.5rem;
+  line-height: 1;
+}
 .text-sm{
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1136,8 +1129,12 @@ select{
   font-size: 0.75rem;
   line-height: 1rem;
 }
-.text-7xl{
-  font-size: 4.5rem;
+.text-8xl{
+  font-size: 6rem;
+  line-height: 1;
+}
+.text-9xl{
+  font-size: 8rem;
   line-height: 1;
 }
 .font-bold{

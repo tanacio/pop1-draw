@@ -4501,6 +4501,8 @@ function draw() {
             }
           };
           splideJs();
+          var splideSlide = document.querySelector('.splide__list');
+          splideSlide.insertAdjacentHTML("afterbegin", "<section class=\"splide__slide text-9xl flex justify-center items-center bg-slate-800 font-barlow_condensed font-bold\">Draw's done.</section>");
           new _splidejs_splide__WEBPACK_IMPORTED_MODULE_3__["default"]('.splide').mount();
         }
 

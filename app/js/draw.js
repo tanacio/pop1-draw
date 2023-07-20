@@ -356,10 +356,10 @@ function draw() {
               createSquadDiv.insertAdjacentHTML("beforeend", `<div class="kill-rate-average font-caveat text-3xl mt-5 text-right">Average kill rate: ${(squadNewKRSumAry[i] / squadArray[i].length).toFixed(2)}</div>`);
               createSquadDiv.insertAdjacentHTML("beforeend", `<div class="kill-rate-sum text-3xl font-caveat text-right"><span>Total kill rate: ${squadNewKRSumAry[i].toFixed(2)}</span></div>`);
             }
-
-
           }
           splideJs();
+          let splideSlide = document.querySelector('.splide__list');
+          splideSlide.insertAdjacentHTML("afterbegin", `<section class="splide__slide text-9xl flex justify-center items-center bg-slate-800 font-barlow_condensed font-bold">Draw's done.</section>`)
           new Splide( '.splide' ).mount();
         }
 
